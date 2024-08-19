@@ -1,0 +1,81 @@
+Props, short for "properties," are a fundamental concept in React used to pass data from one component to another. They allow components to be dynamic and reusable by enabling them to receive input values and render content accordingly.
+
+Understanding Props:
+Passing Data to Components:
+
+Props are used to pass data from a parent component to a child component. This data can be anything, such as strings, numbers, arrays, objects, functions, or even other components.
+For example, you might pass a title, a list of items, or a function to a child component using props.
+Immutability:
+
+Props are immutable, meaning they cannot be changed by the child component that receives them. This ensures that the data passed down to a component remains consistent and prevents side effects.
+If a child component needs to modify the data, it should inform the parent component, which can then pass updated props.
+Usage in Functional Components:
+
+In functional components, props are passed as an argument to the function.
+Example:
+jsx
+Copy code
+function Greeting(props) {
+  return <h1>Hello, {props.name}!</h1>;
+}
+Here, the Greeting component receives a name prop and uses it to display a personalized greeting.
+Usage in Class Components:
+
+In class components, props are accessed using this.props.
+Example:
+jsx
+Copy code
+class Greeting extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}!</h1>;
+  }
+}
+Default Props:
+
+You can define default values for props in case the parent component doesn’t provide them.
+Example:
+jsx
+Copy code
+function Greeting(props) {
+  return <h1>Hello, {props.name}!</h1>;
+}
+
+Greeting.defaultProps = {
+  name: 'Guest'
+};
+If name is not passed, it will default to "Guest."
+When to Use Props:
+To Make Components Reusable:
+
+Props allow you to create components that can be reused with different data. For example, a Button component could be used throughout an application, with different labels and click handlers passed as props.
+To Pass Data and Functions:
+
+If you need to pass dynamic data (like user input or API responses) or functions (like event handlers) to a child component, props are the way to do it.
+To Control Component Behavior:
+
+Props can be used to toggle features or control the behavior of a component. For example, you might pass a disabled prop to a Button component to disable it conditionally.
+Example:
+Here’s an example of how props can be used to create a reusable Card component:
+
+jsx
+Copy code
+function Card(props) {
+  return (
+    <div className="card">
+      <h2>{props.title}</h2>
+      <p>{props.content}</p>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <div>
+      <Card title="Card 1" content="This is the content of card 1." />
+      <Card title="Card 2" content="This is the content of card 2." />
+    </div>
+  );
+}
+In this example, the Card component is reused with different titles and content passed as props.
+
+Props are essential for building flexible, reusable, and dynamic components in React. They allow you to customize components by passing data and functions from parent to child components, making your application more modular and easier to maintain.

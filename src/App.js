@@ -28,6 +28,7 @@ function App() {
   return (
     <>
     <Header title="My Todos List" searchBar = {false}/>
+    {/* passing a javascript object in the todos */}
     <Todos todos = {todos} onDelete = {onDelete}/>
     <Footer/>
     </>
