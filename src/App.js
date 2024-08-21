@@ -4,7 +4,12 @@ import Todos from './MyComponents/Todos';
 import Footer from './MyComponents/Footer';
 import AddTodo from './MyComponents/AddTodo';
 import { useState, useEffect } from 'react';
-// import Todo from "./MyComponents/Todo";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from 'react-router-dom'
 
 function App() {
   let initTodo
