@@ -5,11 +5,11 @@ import Footer from './MyComponents/Footer';
 import AddTodo from './MyComponents/AddTodo';
 import { useState, useEffect } from 'react';
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Routes,
-  Route,
-  Link
+  Route
 } from 'react-router-dom'
+import About from './MyComponents/About';
 
 function App() {
   let initTodo
@@ -41,7 +41,7 @@ function App() {
     // have to take the sno of last todo no and then add plus 1 to it so the code will look somehow like this:- 
     // suppose we delete all the todo and their is no srno so for that case we need to add an if statement for what to do when the serial no is 0
     let sno;
-    if (todos.length == 0) {
+    if (todos.length === 0) {
       sno = 0
     } else {
       sno = todos[todos.length - 1].sno + 1;
@@ -63,11 +63,19 @@ function App() {
 
   return (
     <>
-      <Header title="My Todos List" searchBar={false} />
-      <AddTodo addTodo={addTodo} />
-      {/* passing a javascript object in the todos */}
-      <Todos todos={todos} onDelete={onDelete} />
-      <Footer />
+      <BrowserRouter>
+        <Header title="My Todos List" searchBar={false} />
+        <Routes>
+          <Route path="/" element={
+            <>
+              <AddTodo addTodo={addTodo} />
+              <Todos todos={todos} onDelete={onDelete} />
+            </>
+          } />
+          <Route path="/about" element={<About/>} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </>
   );
 }
