@@ -5,9 +5,11 @@ const Todo = ({todo, onDelete}) => {
     <div>
       <h4>{todo.title}</h4>
       <p>{todo.desc}</p>
-      <button className="btn btn-sm btn-danger" onClick={onDelete}>Delete</button>
+      {/* here we are using an arraow function to PASS a function rather than calling it */}
+      <button className="btn btn-sm btn-danger" onClick={()=>{onDelete(todo)}}>Delete</button>
     </div>
   )
 }
 
 export default Todo
+// Compare this snippet from todos-list/src/MyComponents/Todoitem.js: 
