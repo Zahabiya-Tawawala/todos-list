@@ -65,15 +65,20 @@ function App() {
     <>
       <BrowserRouter>
         <Header title="My Todos List" searchBar={false} />
+
         <Routes>
+
           <Route path="/" element={
             <>
               <AddTodo addTodo={addTodo} />
               <Todos todos={todos} onDelete={onDelete} />
             </>
           } />
+          
           <Route path="/about" element={<About/>} />
+
         </Routes>
+
         <Footer />
       </BrowserRouter>
     </>
